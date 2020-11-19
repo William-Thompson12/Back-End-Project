@@ -10,13 +10,10 @@
     "type": "git",
     "url": "git+https://github.com/William-Thompson12/Back-End-Project.git"
   },
-  "author": "",
+  "author": "William Thompson Jason Wilger",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/William-Thompson12/Back-End-Project/issues"
   },
-  "homepage": "https://github.com/William-Thompson12/Back-End-Project#readme",
-  "dependencies": {
-    "express": "^4.17.1"
-  }
+  "homepage": "https://github.com/William-Thompson12/Back-End-Project#readme"
 }
