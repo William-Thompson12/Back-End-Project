@@ -1,0 +1,22 @@
+{
+  "name": "back-end",
+  "version": "1.0.0",
+  "description": "Backend Project",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/William-Thompson12/Back-End-Project.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/William-Thompson12/Back-End-Project/issues"
+  },
+  "homepage": "https://github.com/William-Thompson12/Back-End-Project#readme",
+  "dependencies": {
+    "express": "^4.17.1"
+  }
+}
