@@ -1,5 +1,6 @@
 html {
     background-color: #EAF2E3;
+    font-family: 'Poiret One', cursive;
 }
 
 body {
@@ -9,7 +10,10 @@ body {
 .top-nav {
     background-color: #EAF2E3;
 }
-
+.modal-content {
+    background-color: #EAF2E3;
+    font-size: larger;
+}
 .page {
     margin: 1%;
 }
