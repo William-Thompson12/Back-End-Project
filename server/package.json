@@ -15,5 +15,9 @@
   "bugs": {
     "url": "https://github.com/William-Thompson12/Back-End-Project/issues"
   },
-  "homepage": "https://github.com/William-Thompson12/Back-End-Project#readme"
+  "homepage": "https://github.com/William-Thompson12/Back-End-Project#readme",
+  "dependencies": {
+    "body-parser": "^1.19.0",
+    "pg-promise": "^10.8.1"
+  }
 }
