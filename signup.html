@@ -1,10 +1,14 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
+  <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Crushn'</title>
 
     <!-- links -->
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Poiret+One&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="animate.css">
     <link rel="stylesheet" href="indexStyles.css">
     <link 
         rel="stylesheet" 
@@ -13,26 +17,28 @@
         crossorigin="anonymous"
     >
     <!-- end links -->
-
-    <title>Crushn'</title>
 </head>
+<body>
 
     <!-- navigation -->
-    <ul class="nav nav-pills nav-justified">
-        <li class="nav-item">
-          <a class="nav-link" href="index.html">Home</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="signup.html">Sign-up</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#">Profile</a>
-        </li>
-      </ul>
-    <!-- end navigation -->
+    <div class="top-nav">
+      <ul class="nav nav-pills nav-justified">
+          <li class="nav-item">
+            <a id="nav-text" class="nav-link" href="index.html">Home</a>
+          </li>
+          <li class="nav-item">
+            <a id="nav-text" class="nav-link" href="signup.html">Sign-up</a>
+          </li>
+          <li class="nav-item">
+            <a id="nav-text" class="nav-link" href="#">Profile</a>
+          </li>
+        </ul>
+      </div>
+      <!-- end navigation -->
 
-<body>
-    <div class="page">
+  <div id="signup-j" class="jumbotron jumbotron-fluid">
+    <div class="jumbo-content">
+      <div class="page">
         <form>
             <div class="form-row">
               <div class="form-group col-md-6">
@@ -75,9 +81,23 @@
                 <input type="text" class="form-control" id="inputZip">
               </div>
             </div>
-            <button type="submit" value="submit" class="btn btn-primary">Sign Up</button>
+            <button id="submit-button" type="submit" value="submit" class="btn btn-warning">Sign Up</button>
         </form>
     </div>
+    </div>
+  </div>
+
+    <!-- footer -->
+    <div class="footer" id="footer">
+      <div class="footer-content">
+        <nav class="nav nav-pills flex-column flex-lg-row">
+          <a id="nav-text" class="flex-sm-fill text-sm-center nav-link" href="#">N/A</a>
+          <a id="nav-text" class="flex-sm-fill text-sm-center nav-link" href="#">N/A</a>
+          <a id="nav-text" class="flex-sm-fill text-sm-center nav-link" href="#">N/A</a>
+        </nav>
+      </div>
+    </div>
+    <!-- end footer -->
 
     <!-- script -->
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" 
