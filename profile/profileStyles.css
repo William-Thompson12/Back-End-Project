@@ -1,0 +1,28 @@
+html, body{
+    background-color: #EAF2E3;
+}
+
+.top-nav {
+    background-color: #EAF2E3;
+    font-family: 'Poiret One', cursive;
+    font-size: larger;
+    font-size: 30px;
+}
+
+#nav-text {
+    color: #F24236;
+}
+
+.page {
+    background-color: #EAF2E3;
+    font-family: 'Poiret One', cursive;
+}
+
+#footer {
+    padding-top: 2%;
+    padding-bottom: 5%;
+    background-color: #565554;
+    font-family: 'Poiret One', cursive;
+    font-size: 30px;
+}
+
