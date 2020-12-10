@@ -9,18 +9,18 @@
     Contact
       -LinkedIn: www.linkedin.com/in/jason-wilger
       -Email: Jkw500@gmail.com
-    My Responsiblites
+    My Responsibilities
       -
   ### William Thompson:
     Contact
       -LinkedIn: www.linkedin.com/in/william-thompson12
       -Email: Thompsonwilliam729@gmail.com
-    My Responsiblites
+    My Responsibilities
       -
   ### Andre Davis:
     Contact
       -
-    My Responsiblites
+    My Responsibilities
       -
 ## Making the Project:
 
