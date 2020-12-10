@@ -7,7 +7,8 @@
 ## Our Team:
   ### Jason Wilger:
     Contact
-      -
+      -LinkedIn: www.linkedin.com/in/jason-wilger
+      -Email: Jkw500@gmail.com
     My Responsiblites
       -
   ### William Thompson:
