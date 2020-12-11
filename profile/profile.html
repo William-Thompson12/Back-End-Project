@@ -7,7 +7,6 @@
     <!-- links -->
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Poiret+One&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="animate.css">
     <link rel="stylesheet" href="profileStyles.css">
     <link 
         rel="stylesheet" 
@@ -38,7 +37,7 @@
                             <!--Replace with JavaScript.-->
                             <img id="profile-picture" src="/img/mymainmanmorgan.webp" alt="profile-picture">
                         </div>
-                        <div class="col-6 user-info">
+                        <div class="col-7 user-info">
                             <!--Replace with JavaScript.-->
                             <h2 id="user-fullname">Example Person</h2>
                             <hr>
@@ -69,17 +68,23 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="col-2">
+                        <div class="col-1">
                             <div class="dropdown">
-                                <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <button class="btn btn-secondary" type="button" data-toggle="collapse" data-target="#collapse-edit" aria-expanded="false" aria-controls="collapse-edit">
                                   Edit
                                 </button>
                             </div>
                         </div>
                     </div>
-                    <div class="row dropdown-menu" aria-labelledby="dropdownMenuButton">
-                        <div class="col-12">
-                            ewiufhwiuehfweqp
+                </div>
+                <div class="collapse.show" id="collapse-edit">
+                    <div class="row">
+                        <div class="edit-buttons" role="group" aria-label="edit-buttons">
+                            <!--Add functions to change and save on user session-->
+                            <button type="button" class="btn btn-secondary">Picture</button>
+                            <button type="button" class="btn btn-secondary">Location</button>
+                            <button type="button" class="btn btn-secondary">Bio</button>
+                            <button type="button" class="btn btn-secondary">Tags</button>
                         </div>
                     </div>
                 </div>

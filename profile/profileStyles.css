@@ -16,6 +16,7 @@ html, body{
 .page {
     background-color: #EAF2E3;
     font-family: 'Poiret One', cursive;
+    width: 100vw;
 }
 
 .user-card{
@@ -24,6 +25,8 @@ html, body{
     background-color:#F6F5AE;
     padding: 2%;
     padding-left: 4%;
+    border-radius: 10px;
+    margin: 5px;
 }
 
 .user-bio{
@@ -55,6 +58,10 @@ html, body{
 
 #tag-container > h4{
     margin: 1px;
+}
+
+.edit-buttons {
+    margin-top: 2%;
 }
 
 .content-holder {
