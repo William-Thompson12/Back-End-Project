@@ -1,9 +1,7 @@
-# Back-End-Project
-## Crushn'
+# Crushn'/ Back-End-Project 
 ## Summary:
-
-<--TO BE COMPLETED-->
-
+ Tired of being lonely? In need of some human interaction? Look no further then Crushn'! Create a profile, select a distance, choose what tags and traits are specific to you. All that's left to do is hit that button and get Crushn'! *We are not liable for any bad dates*
+ 
 ## Our Team:
   ### Jason Wilger:
     Contact
@@ -23,9 +21,28 @@
     My Responsibilities
       -
 ## Making the Project:
+  -Challanges:
+    - 1st Challange / Solution
+    - 2nd Challange / Solution
+    - 3rd Challange / Solution
+    
+  -What would be done differently?
+    - 1st Change / Solution
+    - 2nd Change / Solution
+    - 3rd Change / Solution
 
-## Repository Contents
+## Repository Contents 
+  -Server.js: Holds the express server 
+  -App: Within app we stored config, controllers, models, and routes which hook up with our data-base.
+  -Public: Public static files held on the server. 
+  -Views: Containts home, profile and signup pages. All with partials rendered with EJS.
 
 ## API's:
-
+  -1st API:
+  -2nd API:
+  
 ## Features & How they work:
+  -Index/Home:
+  -Profile:
+  -Signup:
+  -Matching:
