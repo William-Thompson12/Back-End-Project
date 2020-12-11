@@ -3,7 +3,14 @@ const bodyParser = require("body-parser");
 const ejs = require('ejs');
 // const cors = require("cors");
 
+// Routes here
+
 const app = express();
+
+app.set('view engine', 'ejs');
+
+app.use(express.urlencoded({ extended: true }));
+app.use(express.static('public'));
 
 // var corsOptions = {
 //   origin: "http://localhost:8081"
@@ -17,15 +24,15 @@ app.use(bodyParser.json());
 // parse requests of content-type - application/x-www-form-urlencoded
 app.use(bodyParser.urlencoded({ extended: true }));
 
-const db = require("./app/models");
-db.sequelize.sync();
+// const db = require("./app/models");
+// db.sequelize.sync();
 // db.sequelize.sync({ force: true }).then(() => {
 //     console.log("Drop and re-sync db.");
 //   });
 
-// simple route
-app.get("/", (req, res) => {
-  res.json({ message: "Welcome to our application." });
+// index page
+app.get('/', function(req, res) {
+  res.render('home/index');
 });
 
 require("./app/routes/user.routes")(app);
