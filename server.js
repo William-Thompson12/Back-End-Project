@@ -32,9 +32,14 @@ app.use(bodyParser.urlencoded({ extended: true }));
 
 // index page
 app.get('/', function(req, res) {
-  res.render('home/index');
+  res.render('home/index.ejs');
 });
-
+app.get('/signup', function(req, res) {
+  res.render('signup/signup.ejs');
+});
+app.get('/profile', function(req, res) {
+  res.render('profile/profile.ejs');
+});
 require("./app/routes/user.routes")(app);
 
 // set port, listen for requests

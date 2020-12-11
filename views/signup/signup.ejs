@@ -1,45 +1,20 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Crushn'</title>
+<%- include('../partials/header/header'); -%>
+<link rel="stylesheet" href="/styles/animate.css">
+<link rel="stylesheet" href="/styles/indexStyles.css">
 
-    <!-- links -->
-    <link rel="preconnect" href="https://fonts.gstatic.com">
-    <link href="https://fonts.googleapis.com/css2?family=Poiret+One&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="animate.css">
-    <link rel="stylesheet" href="/indexStyles.css">
-    <link 
-        rel="stylesheet" 
-        href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" 
-        integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" 
-        crossorigin="anonymous"
-    >
-    <head>
-      <link
-        rel="stylesheet"
-        href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
-      />
-    </head>
-    <!-- end links -->
-</head>
 <body>
 
     <!-- navigation -->
     <div class="top-nav">
       <ul class="nav nav-pills nav-justified">
           <li class="nav-item">
-            <a id="nav-text" class="nav-link" href="/index.html">Home</a>
+            <a id="nav-text" class="nav-link" href="/">Home</a>
           </li>
           <li class="nav-item">
-            <a id="nav-text" class="nav-link" href="/signup/signup.html">Sign-up</a>
+            <a id="nav-text" class="nav-link" href="/profile">Profile</a>
           </li>
-          <li class="nav-item">
-            <a id="nav-text" class="nav-link" href="/profile/profile.html">Profile</a>
-          </li>
-      </ul>
-    </div>
+        </ul>
+      </div>
       <!-- end navigation -->
 
   <div id="signup-j" class="jumbotron jumbotron-fluid">
@@ -114,32 +89,4 @@
     </div>
   </div>
 
-    <!-- footer -->
-    <div class="footer" id="footer">
-      <div class="footer-content">
-        <nav class="nav nav-pills flex-column flex-lg-row">
-          <a id="nav-text" class="flex-sm-fill text-sm-center nav-link" href="#">N/A</a>
-          <a id="nav-text" class="flex-sm-fill text-sm-center nav-link" href="#">N/A</a>
-          <a id="nav-text" class="flex-sm-fill text-sm-center nav-link" href="#">N/A</a>
-        </nav>
-      </div>
-    </div>
-    <!-- end footer -->
-
-    <!-- script -->
-    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" 
-        integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" 
-        crossorigin="anonymous">
-    </script>
-    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" 
-        integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" 
-        crossorigin="anonymous">
-    </script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.min.js" 
-        integrity="sha384-w1Q4orYjBQndcko6MimVbzY0tgp4pWB4lZ7lr30WKz0vr/aWKhXdBNmNb5D92v7s" 
-        crossorigin="anonymous">
-    </script>  
-    <!-- end script -->
-
-</body>
-</html>
+<%- include('../partials/footer/footer'); -%>
