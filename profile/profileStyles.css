@@ -26,7 +26,32 @@ html, body{
     padding: 2%;
     padding-left: 4%;
     border-radius: 10px;
-    margin: 5px;
+    margin-top: 3%;
+    margin-bottom: 3%;
+    background-color: #EAF2E3;
+    box-shadow: 5px 5px rgba(46, 134, 171, 0.4),
+    10px 10px rgba(46, 134, 171, 0.3),
+    15px 15px rgba(46, 134, 171, 0.2),
+    20px 20px rgba(46, 134, 171, 0.1),
+    25px 25px rgba(46, 134, 171, 0.05);
+    border: .5px solid #565554;
+}
+
+#profile-edit {
+    background-color: #F5F749;
+    margin-bottom: 15%;
+    color: #565554;
+    box-shadow: 5px 5px rgba(46, 134, 171, 0.4),
+    10px 10px rgba(46, 134, 171, 0.3),
+    15px 15px rgba(46, 134, 171, 0.2),
+    20px 20px rgba(46, 134, 171, 0.1),
+    25px 25px rgba(46, 134, 171, 0.05);
+    border: .5px solid #565554;
+    font-family: 'Poiret One', cursive;
+}
+
+#tags {
+    background-color: #2E86AB;
 }
 
 .user-bio{
@@ -62,6 +87,7 @@ html, body{
 
 .edit-buttons {
     margin-top: 2%;
+    
 }
 
 .content-holder {
