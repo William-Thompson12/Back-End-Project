@@ -1,3 +1,5 @@
+/* animation for flickering title */
+
 .sign {
     font-family: 'Poiret One', cursive;
     text-transform: uppercase;
@@ -164,7 +166,5 @@
       opacity: 1;
     }
   }
-
-  /* buttons */
-
-  /* end buttons */
+  
+  /* end animation for flickering title */

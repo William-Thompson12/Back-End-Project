@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Crushn'</title>
+
     <!-- links -->
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Poiret+One&display=swap" rel="stylesheet">
@@ -14,7 +15,14 @@
         integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" 
         crossorigin="anonymous"
     >
+    <head>
+        <link
+          rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
+        />
+      </head>
     <!-- end links -->
+
 </head>
 <body>
     <div class="page">
@@ -28,69 +36,80 @@
             </ul>
         </div>
         <!-- end navigation -->
+
         <!-- user card -->
         <div class="content-holder">
-            <div class="user-card">
+            <div class="user-card animate__animated animate__fadeIn">
                 <div class="row">
                     <div class="row">
                         <div class="col-4 user-icon">
                             <!--Replace with JavaScript.-->
                             <img id="profile-picture" src="/img/mymainmanmorgan.webp" alt="profile-picture">
                         </div>
+
                         <div class="col-7 user-info">
                             <!--Replace with JavaScript.-->
-                            <h2 id="user-fullname">Example Person</h2>
+                            <h2 id="user-fullname">User's Name</h2>
                             <hr>
                             <div class="user-vitals">
                                 <div id="user-vitals" class="row">
                                     <!--Replace with JavaScript.-->
-                                    <h5 id="user-age">18,</h5>
+                                    <h5 id="user-age">18</h5>
+                                    <h5>||</h5>
                                     <h5 id="user-location">Atlanta, GA</h5>
+                                    <h5>||</h5>
                                 </div>
                             </div>
+                            <br>
+
                             <div class="user-bio">
                                 <!--Replace with JavaScript.-->
-                                <p>"Wow haha that's so cool you spent four months in Vietnam – but I can't look past the world emoji." - <strong>*user-fullname*</strong></p>
+                                <p>"Wow haha that's so cool you spent four months in Vietnam – but I can't look past the world emoji." <br> - <strong>*user-fullname*</strong></p>
                             </div>
+
                             <div class="user-tags">
                                 <h5>Interest:</h5>
                                 <div id="tag-container" class="row">
                                     <!--Replace with JavaScript.-->
-                                    <h4><span class="badge badge-secondary">Hiking</span></h4>
-                                    <h4><span class="badge badge-secondary">Dogs</span></h4>
-                                    <h4><span class="badge badge-secondary">Basketball</span></h4>
-                                    <h4><span class="badge badge-secondary">Hiking</span></h4>
-                                    <h4><span class="badge badge-secondary">Dogs</span></h4>
-                                    <h4><span class="badge badge-secondary">Basketball</span></h4>
-                                    <h4><span class="badge badge-secondary">Hiking</span></h4>
-                                    <h4><span class="badge badge-secondary">Dogs</span></h4>
-                                    <h4><span class="badge badge-secondary">Basketball</span></h4>
+                                    <h4><span id="tags" class="badge badge-secondary">Hiking</span></h4>
+                                    <h4><span id="tags" class="badge badge-secondary">Dogs</span></h4>
+                                    <h4><span id="tags" class="badge badge-secondary">Basketball</span></h4>
+                                    <h4><span id="tags" class="badge badge-secondary">Hiking</span></h4>
+                                    <h4><span id="tags" class="badge badge-secondary">Dogs</span></h4>
+                                    <h4><span id="tags" class="badge badge-secondary">Basketball</span></h4>
+                                    <h4><span id="tags" class="badge badge-secondary">Hiking</span></h4>
+                                    <h4><span id="tags" class="badge badge-secondary">Dogs</span></h4>
+                                    <h4><span id="tags" class="badge badge-secondary">Basketball</span></h4>
                                 </div>
                             </div>
                         </div>
+
                         <div class="col-1">
-                            <div class="dropdown">
-                                <button class="btn btn-secondary" type="button" data-toggle="collapse" data-target="#collapse-edit" aria-expanded="false" aria-controls="collapse-edit">
+                            <div  class="dropdown">
+                                <button id="profile-edit" class="btn" type="button" data-toggle="collapse" data-target="#collapse-edit" aria-expanded="false" aria-controls="collapse-edit">
                                   Edit
                                 </button>
                             </div>
                         </div>
                     </div>
                 </div>
+
                 <div class="collapse" id="collapse-edit">
                     <div class="row">
                         <div class="edit-buttons" role="group" aria-label="edit-buttons">
                             <!--Add functions to change and save on user session-->
-                            <button type="button" class="btn btn-secondary">Picture</button>
-                            <button type="button" class="btn btn-secondary">Location</button>
-                            <button type="button" class="btn btn-secondary">Bio</button>
-                            <button type="button" class="btn btn-secondary">Tags</button>
+                            <button id="profile-edit" type="button" class="btn btn-secondary">Picture</button>
+                            <button id="profile-edit" type="button" class="btn btn-secondary">Location</button>
+                            <button id="profile-edit" type="button" class="btn btn-secondary">Bio</button>
+                            <button id="profile-edit" type="button" class="btn btn-secondary">Tags</button>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
+        
         <!-- end user card-->
+
         <!-- footer -->
         <div class="footer" id="footer">
             <div class="footer-content">
