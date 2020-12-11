@@ -60,9 +60,10 @@ html, body{
     margin: 1px;
 }
 
-#collapse-edit{
-    height: 5rem;
+.edit-buttons {
+    margin-top: 2%;
 }
+
 .content-holder {
     width: 100vw;
     height: auto;
