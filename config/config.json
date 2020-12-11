@@ -1,22 +1,22 @@
 {
   "development": {
-    "username": "",
+    "username": "root",
     "password": null,
-    "database": "crushinit_database_dev",
+    "database": "database_development",
     "host": "127.0.0.1",
     "dialect": "mysql"
   },
   "test": {
-    "username": "",
+    "username": "root",
     "password": null,
-    "database": "crushinit_database_test",
+    "database": "database_test",
     "host": "127.0.0.1",
     "dialect": "mysql"
   },
   "production": {
-    "username": "",
+    "username": "root",
     "password": null,
-    "database": "crushinit_database_prod",
+    "database": "database_production",
     "host": "127.0.0.1",
     "dialect": "mysql"
   }
