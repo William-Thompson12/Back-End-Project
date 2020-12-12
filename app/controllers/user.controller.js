@@ -5,18 +5,23 @@ const Op = db.Sequelize.Op;
 // Create and Save a new User
 exports.create = (req, res) => {
     // Validate request
-    if (!req.body.title) {
+    if (req.body.age < 18) {
         res.status(400).send({
-          message: "Content can not be empty!"
+          message: "Must Be 18 or Older!"
         });
         return;
       }
 
         // Create a User
   const user = {
-    title: req.body.title,
-    description: req.body.description,
-    published: req.body.published ? req.body.published : false
+    first_name: req.body.first_name,
+    last_name: req.body.last_name,
+    address: req.body.address,
+    city: req.body.city,
+    zip: req.body.zip,
+    age: req.body.age,
+    prefence: req.body.prefence ? req.body.prefence : false,
+    searchRadius: req.body.search-radius
   };
 
   // Save User in the database
