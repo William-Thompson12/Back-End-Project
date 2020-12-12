@@ -2,6 +2,7 @@
 <link rel="stylesheet" href="/styles/animate.css">
 <link rel="stylesheet" href="/styles/indexStyles.css">
 
+</head>
 <body>
 
     <!-- Modal -->
@@ -51,9 +52,31 @@
             <span class="fast-flicker">C</span>RUS<span class="flicker">H</span>N'
           </div>
         </div>
-        <a href="#" class="btn" id="crushn-button">GET CRUSHN'</a>
+
+        <!-- toggle user cards -->
+        <div id="user-cards">
+          
+        </div>
+        <button id="crushn-button" class="btn" onclick="getCards()">GET CRUSHN'</button>
+        <!-- end toggle user cards -->
+
+        </div>
         </div>
       </div>
     <!-- end logo -->
 
 <%- include('../partials/footer/footer'); -%>
+<script>
+  // this function will render user cards to the screen 
+function getCards() {
+
+let cardContainer = document.getElementById("user-cards")
+console.log(cardContainer);
+
+
+};
+
+console.log('script file running');
+</script>
+</body>
+</html>
