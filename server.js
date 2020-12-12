@@ -44,6 +44,10 @@ app.get('/signup', function(req, res) {
 app.get('/profile', function(req, res) {
   res.render('profile/profile.ejs');
 });
+// About Page
+app.get('/about', function(req, res) {
+  res.render('about/about.ejs');
+});
 
 require("./app/routes/user.routes")(app);
 

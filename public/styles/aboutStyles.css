@@ -1,0 +1,121 @@
+html, body{
+    background-color: #EAF2E3;
+}
+
+.top-nav {
+    background-color: #EAF2E3;
+    font-family: 'Poiret One', cursive;
+    font-size: larger;
+    font-size: 30px;
+}
+
+#nav-text {
+    color: #F24236;
+}
+
+.page {
+    background-color: #EAF2E3;
+    font-family: 'Poiret One', cursive;
+    width: 100vw;
+    height: auto;
+}
+
+#aboutUs{
+    color: #F24236;
+}
+
+.summary {
+    color: #F24236;
+    width: 50%;
+    text-align: center;
+}
+
+.summary > p {
+    color: black;
+}
+
+.user-card{
+    width: 90vw;
+    height: 80%;
+    background-color:#F6F5AE;
+    padding: 2%;
+    padding-left: 4%;
+    border-radius: 10px;
+    margin-top: 8%;
+    margin-bottom: 3%;
+    background-color: #EAF2E3;
+    box-shadow: 5px 5px rgba(46, 134, 171, 0.4),
+    10px 10px rgba(46, 134, 171, 0.3),
+    15px 15px rgba(46, 134, 171, 0.2),
+    20px 20px rgba(46, 134, 171, 0.1),
+    25px 25px rgba(46, 134, 171, 0.05);
+    border: .5px solid #565554;
+}
+
+#profile-edit {
+    background-color: #F5F749;
+    margin-bottom: 15%;
+    color: #565554;
+    box-shadow: 5px 5px rgba(46, 134, 171, 0.4),
+    10px 10px rgba(46, 134, 171, 0.3),
+    15px 15px rgba(46, 134, 171, 0.2),
+    20px 20px rgba(46, 134, 171, 0.1),
+    25px 25px rgba(46, 134, 171, 0.05);
+    border: .5px solid #565554;
+    font-family: 'Poiret One', cursive;
+}
+
+#tags {
+    background-color: #2E86AB;
+}
+
+.user-bio{
+    font-size: medium;
+}
+
+#user-vitals > h5{
+    margin-left: 2.5%;
+}
+
+#user-fullname {
+    color: #F24236;
+}
+
+#user-age {
+    color: #2E86AB;
+}
+
+#user-location {
+    color: #2E86AB;
+}
+
+#profile-picture{
+    width: 100%;
+    height: auto;
+    border-radius: 10px;
+    border: 2px solid #565554
+}
+
+#tag-container > h4{
+    margin: 1px;
+}
+
+.edit-buttons {
+    margin-top: 2%;
+    
+}
+
+.content-holder {
+    width: 100vw;
+    height: auto;
+    display: flex;
+    justify-content: center;
+}
+
+#footer {
+    padding-top: 2%;
+    padding-bottom: 5%;
+    background-color: #565554;
+    font-family: 'Poiret One', cursive;
+    font-size: 30px;
+}
