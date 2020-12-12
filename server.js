@@ -30,16 +30,21 @@ app.use(bodyParser.urlencoded({ extended: true }));
 //     console.log("Drop and re-sync db.");
 //   });
 
-// index page
+//EJS Routes
+//V V V V V V
+// Index page
 app.get('/', function(req, res) {
   res.render('home/index.ejs');
 });
+// Signup page
 app.get('/signup', function(req, res) {
   res.render('signup/signup.ejs');
 });
+// Profile Page
 app.get('/profile', function(req, res) {
   res.render('profile/profile.ejs');
 });
+
 require("./app/routes/user.routes")(app);
 
 // set port, listen for requests
