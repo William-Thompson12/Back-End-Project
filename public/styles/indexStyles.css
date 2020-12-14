@@ -25,17 +25,28 @@ html, body{
 #interaction {
     display: flex;
     justify-content: center;
-    margin-top: 15%;
+    margin-top: 5%;
     margin-bottom: 5%;
+}
+
+#sign-out{
+   width: max-content; 
+   align-self: center;
+   color:#F24236;
+   font-family: 'Poiret One', cursive;;
+   font-size: larger;
+   margin-bottom: 5%;
 }
 
 #crushn-button {
     width: 10%;
     display: flex;
+    min-width: 100px;
+    font-size: 1.5vw;
     align-self: center;
     justify-content: center;
     background-color: #F5F749;
-    margin-bottom: 15%;
+    margin-bottom: 5%;
     color: #565554;
     box-shadow: 5px 5px rgba(46, 134, 171, 0.4),
     10px 10px rgba(46, 134, 171, 0.3),
