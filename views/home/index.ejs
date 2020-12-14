@@ -56,9 +56,10 @@
 
         <!-- toggle user cards -->
         <div id="user-cards">
-
+          <!-- user cards will render here -->
         </div>
-        <button id="crushn-button" class="btn" onclick="shuffle()">GET CRUSHN'</button>
+
+        <button id="crushn-button" class="btn" onclick="shuffle();">GET CRUSHN'</button>
         <!-- end toggle user cards -->
 
         </div>
@@ -68,45 +69,7 @@
 
 <%- include('../partials/footer/footer'); -%>
 
-<!-- script for button -->
-
-<script>
-  // this function will render user cards to the screen 
-function shuffle() {
-
-  let cardContainer = document.getElementById("user-cards")
-  console.log(cardContainer);
-
-  const fakeDb = [0];
-
-  var userCard = fakeDb.map((userInfo) => {
-    return `
-        <div class="card mb-3" style="max-width: 600px;">
-          <div class="row no-gutters">
-            <div class="col-md-4">
-              <img src="..." class="card-img" alt="...">
-            </div>
-            <div class="col-md-8">
-              <div id="user-cards" class="card-body">
-                <h5 class="card-title">Users Name</h5>
-                <p class="card-text">Bio</p>
-                <h4><span id="tags" class="badge badge-secondary">??</span></h4>
-                <a href="#" class="btn text-danger">View Profile</a>
-              </div>
-            </div>
-          </div>
-        </div>
-    `
-
-  });
-
-  cardContainer.innerHTML = userCard.join(" ")
-  console.log(userCard);
-};
-
-</script>
-
 <!-- end script for button  -->
-
+<script src="script/cards.js"></script>
 </body>
 </html>
