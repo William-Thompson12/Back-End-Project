@@ -9,9 +9,6 @@ module.exports = app => {
     // Retrieve all Users
     router.get("/", users.findAll);
   
-    // Retrieve all published Users
-    router.get("/published", users.findAllPublished);
-  
     // Retrieve a single Users with id
     router.get("/:id", users.findOne);
   
@@ -20,9 +17,6 @@ module.exports = app => {
   
     // Delete a Users with id
     router.delete("/:id", users.delete);
-  
-    // Create a new Users
-    router.delete("/", users.deleteAll);
   
     app.use('/api/users', router);
   };
