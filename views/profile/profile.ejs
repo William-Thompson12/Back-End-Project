@@ -66,7 +66,7 @@
                         <div class="col-1">
                             <div  class="dropdown">
                                 <button id="profile-edit" class="btn" type="button" data-toggle="collapse" data-target="#collapse-edit" aria-expanded="false" aria-controls="collapse-edit">
-                                  Edit
+                                  Profile
                                 </button>
                             </div>
                         </div>
@@ -75,12 +75,18 @@
 
                 <div class="collapse" id="collapse-edit">
                     <div class="row">
-                        <div class="edit-buttons" role="group" aria-label="edit-buttons">
-                            <!--Add functions to change and save on user session-->
-                            <button id="profile-edit" type="button" class="btn btn-secondary">Picture</button>
-                            <button id="profile-edit" type="button" class="btn btn-secondary">Location</button>
-                            <button id="profile-edit" type="button" class="btn btn-secondary">Bio</button>
-                            <button id="profile-edit" type="button" class="btn btn-secondary">Tags</button>
+                        <div class="col-6">
+                            <div class="edit-buttons" role="group" aria-label="edit-buttons">
+                                <!--Add functions to change and save on user session-->
+                                <button id="profile-edit" type="button" class="btn btn-secondary">Picture</button>
+                                <button id="profile-edit" type="button" class="btn btn-secondary">Location</button>
+                                <button id="profile-edit" type="button" class="btn btn-secondary">Bio</button>
+                                <button id="profile-edit" type="button" class="btn btn-secondary">Tags</button>
+                            </div>
+                        </div>
+                        <div class="col-6">
+                            <!--Sign-Out-->
+                            <a id="sign-out" type="button" class="btn btn-none" onclick="">Sign-out</a>
                         </div>
                     </div>
                 </div>

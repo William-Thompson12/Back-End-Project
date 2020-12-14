@@ -13,6 +13,19 @@ html, body{
     color: #F24236;
 }
 
+.edit-buttons{
+    height: 100px;
+}
+
+#sign-out{
+    width: max-content; 
+    align-self: center;
+    color:#F24236;
+    font-family: 'Poiret One', cursive;;
+    font-size: larger;
+    margin-bottom: 5%;
+ }
+
 .page {
     background-color: #EAF2E3;
     font-family: 'Poiret One', cursive;
