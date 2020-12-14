@@ -31,7 +31,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
 //   });
 
 //EJS Routes
-//V V V V V V
+
 // Index page
 app.get('/', function(req, res) {
   res.render('home/index.ejs');

@@ -1,10 +1,5 @@
 #user-cards {
-    
-    background-color: #EAF2E3;
-    box-shadow: 5px 5px rgba(46, 134, 171, 0.4),
-    10px 10px rgba(46, 134, 171, 0.3),
-    15px 15px rgba(46, 134, 171, 0.2),
-    20px 20px rgba(46, 134, 171, 0.1),
-    25px 25px rgba(46, 134, 171, 0.05);
-    border: .5px solid #565554;
+    width: 80%;
+    margin-left: 10%;
+    margin-right: 10%;
 }

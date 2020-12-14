@@ -9,7 +9,7 @@ function shuffle() {
   
     var userCard = fakeDb.map((userInfo) => {
       return `
-          <div class="card mb-5 offset-3" style="max-width: 600px;">
+          <div class="card mb-5">
             <div class="row no-gutters">
               <div class="col-md-4">
                 <img src="..." class="card-img" alt="...">
