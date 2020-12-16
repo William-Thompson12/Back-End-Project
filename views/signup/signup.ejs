@@ -47,13 +47,22 @@
               </div>
             </div>
             <div class="form-row">
-              <div class="form-group col-md-4">
+              <div class="form-group col-md-3">
                 <div class="col">
                   <label>Age</label>
                   <input type="text" class="form-control" placeholder="18">
                 </div>
               </div>
-              <div class="form-group col-md-4">
+              <div class="form-group col-md-3">
+                <div class="col">
+                  <label>Gender</label>
+                  <select id="userGender" class="form-control">
+                    <option selected>Male</option>
+                    <option>Female</option>
+                  </select>
+                </div>
+              </div>
+              <div class="form-group col-md-3">
                 <div class="col">
                   <label>Prefence</label>
                   <select id="userPrefrence" class="form-control">
@@ -63,7 +72,7 @@
                   </select>
                 </div>
               </div>
-              <div class="form-group col-md-4">
+              <div class="form-group col-md-3">
                 <div class="col">
                   <label>Search Radius "mi"</label>
                   <select id="search-radius" class="form-control">
@@ -74,8 +83,8 @@
                 </div>
               </div>
             </div>
-            <div class="error-message">
-              <p>Example error message</p>
+            <div id="error-message">
+
             </div>
             <button id="submit-button" type="submit" value="submit" class="btn btn-warning">Sign Up</button>
         </form>

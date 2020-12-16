@@ -26,6 +26,7 @@ exports.create = (req, res) => {
         });
         return;
       }
+
   // Create a User
   users.push({
     id: primaryId,
@@ -35,6 +36,7 @@ exports.create = (req, res) => {
     city: req.body.city,
     zip: req.body.zip,
     age: req.body.age,
+    gender: req.body.gender,
     prefence: req.body.prefence ? req.body.prefence : false,
     searchRadius: req.body.searchRadius
   });
