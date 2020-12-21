@@ -5,7 +5,8 @@
     padding-bottom: 5%;
     background-color: #565554;
     font-family: 'Poiret One', cursive;
-    font-size: 30px;    
+    font-size: 30px;
+    margin-bottom: -1.5%;
 }
 
 #footer-item {
@@ -16,4 +17,37 @@
 
 #footer-text {
     color: #F24236;
+}
+
+#footer-icons1 {
+    float: left;
+}
+
+#footer-icons2 {
+
+}
+
+.copy-right {
+    display: flex;
+    justify-content: center;
+    padding-bottom: 1%;
+    margin-bottom: -1%;
+    background-color: #565554;
+    font-family: 'Poiret One', cursive;
+}
+
+.crushn-copy {
+    background-color: #565554;
+}
+
+hr {
+    border: 1px solid #EAF2E3;
+    border-radius: 50%;
+    width: 75%;
+}
+
+
+.hyper, a:hover, a:focus, a:active {
+   text-decoration: none;
+   color: inherit;
 }
