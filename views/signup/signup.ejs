@@ -1,7 +1,6 @@
 <%- include('../partials/header/header'); -%>
 <link rel="stylesheet" href="/styles/animate.css">
 <link rel="stylesheet" href="/styles/signupStyles.css">
-
 </head>
 <body>
 
@@ -15,8 +14,8 @@
             <a id="nav-text" class="nav-link" href="/profile">Profile</a>
           </li>
         </ul>
-      </div>
-      <!-- end navigation -->
+    </div>
+    <!-- end navigation -->
 
   <div id="signup-j" class="jumbotron jumbotron-fluid">
     <div class="jumbo-content animate__animated animate__fadeIn">
@@ -24,61 +23,61 @@
         <form>
             <div class="form-row">
                 <div class="col">
-                    <label>First Name</label>
-                    <input type="text" class="form-control" placeholder="First name">
+                    <label id="first-name">First Name</label>
+                    <input id="inputFirst" type="text" class="form-control" placeholder="First name" required>
                 </div>
                 <div class="col">
-                    <label>Last Name</label>
-                    <input type="text" class="form-control" placeholder="Last name">
+                    <label id="last-name">Last Name</label>
+                    <input id="inputLast" type="text" class="form-control" placeholder="Last name" required>
                 </div>
             </div>        
             <div class="form-group">
-              <label for="inputAddress">Address</label>
-              <input type="text" class="form-control" id="inputAddress" placeholder="1234 Main St">
+              <label id="address-field" for="inputAddress">Address</label>
+              <input type="text" class="form-control" id="inputAddress" placeholder="1234 Main St" required>
             </div>
             <div class="form-row">
               <div class="form-group col-md-6">
-                <label for="inputCity">City</label>
-                <input type="text" class="form-control" id="inputCity">
+                <label id="city-field" for="inputCity">City</label>
+                <input type="text" class="form-control" id="inputCity" required>
               </div>
               <div class="form-group col-md-6">
-                <label for="inputZip">Zip</label>
-                <input type="text" class="form-control" id="inputZip">
+                <label id="zip-field" for="inputZip">Zip</label>
+                <input type="text" class="form-control" maxlength="5" minlength="5" id="inputZip" required>
               </div>
             </div>
             <div class="form-row">
               <div class="form-group col-md-3">
                 <div class="col">
-                  <label>Age</label>
-                  <input type="text" class="form-control" placeholder="18">
+                  <label id="age-field">Age</label>
+                  <input id="inputAge" type="text" maxlength="3" min="18" max="100" class="form-control" placeholder="18" required>
                 </div>
               </div>
               <div class="form-group col-md-3">
                 <div class="col">
-                  <label>Gender</label>
-                  <select id="userGender" class="form-control">
-                    <option selected>Male</option>
-                    <option>Female</option>
+                  <label id="gender-field">Gender</label>
+                  <select id="userGender" class="form-control" required>
+                    <option  value="m" selected>Male</option>
+                    <option value="f">Female</option>
                   </select>
                 </div>
               </div>
               <div class="form-group col-md-3">
                 <div class="col">
-                  <label>Prefence</label>
-                  <select id="userPrefrence" class="form-control">
-                    <option selected>Male</option>
-                    <option>Female</option>
-                    <option>Both</option>
+                  <label id="prefence-field">Prefence</label>
+                  <select id="userPrefrence" class="form-control" required> 
+                    <option value="m" selected>Male</option>
+                    <option value="f">Female</option>
+                    <option value="mf">Both</option>
                   </select>
                 </div>
               </div>
               <div class="form-group col-md-3">
                 <div class="col">
-                  <label>Search Radius "mi"</label>
-                  <select id="search-radius" class="form-control">
-                    <option selected>20</option>
-                    <option>40</option>
-                    <option>60</option>
+                  <label id="search-field">Search Radius "mi"</label>
+                  <select id="search-radius" class="form-control" required>
+                    <option value="20" selected>20</option>
+                    <option value="40">40</option>
+                    <option value="60">60</option>
                   </select>
                 </div>
               </div>
@@ -86,7 +85,7 @@
             <div id="error-message">
 
             </div>
-            <button id="submit-button" type="submit" value="submit" class="btn btn-warning">Sign Up</button>
+            <button id="submit-button" type="submit" name="submit" value="submit" class="btn btn-warning">Sign Up</button>
         </form>
       </div>
     </div>
