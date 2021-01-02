@@ -1,7 +1,7 @@
 const express = require("express");
 const bodyParser = require("body-parser");
 const ejs = require('ejs');
-// const cors = require("cors");
+const cors = require("cors");
 
 // Routes here
 
@@ -12,11 +12,12 @@ app.set('view engine', 'ejs');
 app.use(express.urlencoded({ extended: true }));
 app.use(express.static('public'));
 
-// var corsOptions = {
-//   origin: "http://localhost:8081"
-// };
+//Allows request from localhost:5050
+var corsOptions = {
+  origin: "http://localhost:5050"
+};
 
-// app.use(cors(corsOptions));
+app.use(cors(corsOptions));
 
 // parse requests of content-type - application/json
 app.use(bodyParser.json());
