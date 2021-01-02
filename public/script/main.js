@@ -61,7 +61,7 @@ function createTags(user) {
 //Finds User
 function findUser() {
   //Specific User Id from log in.
-  //fetch("http://localhost:5050/api/users/", {method: 'GET'})
+  //fetch("http://localhost:5050/api/users/:id", {method: 'GET'})
 
   //Set Profile to Users Data
   document.getElementById('user-fullname').innerHTML = "My Full Name";
@@ -85,6 +85,6 @@ function updateUser() {
     //let newUser = {...data}
   })
   //Send user data to DB
-  fetch("http://localhost:5050/api/users/:id", {method: 'PUT', body: updatedUser})
+  fetch("http://localhost:5050/api/users/:id", {method: 'PATCH', body: updatedUser})
 
 }
