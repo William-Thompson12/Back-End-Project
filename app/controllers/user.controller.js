@@ -17,7 +17,7 @@ exports.findAll = (req, res) => {
 
 //route that creates new user from email signup
 exports.findAndCreate = async (req,res) => {
-
+ console.log(req.body)
   //checks if user already has an account
   let persistedUser = await User.findOne({
     where: {
@@ -55,7 +55,7 @@ exports.findAndCreate = async (req,res) => {
 // Find a single User with an id
 exports.findOne = (req, res) => {
     const id = req.params.id;
-
+    console.log(id)
     User.findByPk(id)
     .then(data => {
       res.send(data);

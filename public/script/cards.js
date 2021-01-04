@@ -1,10 +1,17 @@
-// this function will render user cards to the screen 
-function shuffle() {
+function randomInteger(min, max) {
+  return Math.floor(Math.random() * (max - min + 1)) + min;
+}
 
-    let cardContainer = document.getElementById("user-cards");
-    const fakeDb = [0];
+function shuffle() {
   
-    var userCard = fakeDb.map((userInfo) => {
+  let newId = randomInteger(1, 8);
+  console.log(newId);
+  fetch(`http://localhost:5050/api/users/${newId}`, {method: 'GET'})
+    .then(response => response.json())
+    .then(data => {
+      console.log(data)
+    let cardContainer = document.getElementById("user-cards");
+    var userCard = data.map((userInfo) => {
       return `
           <div class="card mb-5">
             <div class="row no-gutters">
@@ -24,6 +31,10 @@ function shuffle() {
       `
     });
     cardContainer.innerHTML = userCard.join(" ");
-    console.log(userCard);
-  };
+    })
+    .catch(e => {
+      console.log(e);
+      return e;
+    })
+  }
 // end user-cards function 

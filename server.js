@@ -2,28 +2,23 @@ const express = require("express");
 const bodyParser = require("body-parser");
 const ejs = require('ejs');
 const cors = require("cors");
-
+const axios = require('axios')
 // Routes here
 
 const app = express();
 
 app.set('view engine', 'ejs');
-
-app.use(express.urlencoded({ extended: true }));
+app.use(cors());
+app.use(bodyParser.urlencoded({
+  extended: true
+}));
+app.use(bodyParser.json());
 app.use(express.static('public'));
 
 //Allows request from localhost:5050
 var corsOptions = {
   origin: "http://localhost:5050"
 };
-
-app.use(cors(corsOptions));
-app.use(express.json());
-// parse requests of content-type - application/json
-app.use(bodyParser.json());
-
-// parse requests of content-type - application/x-www-form-urlencoded
-app.use(bodyParser.urlencoded({ extended: true }));
 
 // const db = require("./app/models");
 // db.sequelize.sync();
