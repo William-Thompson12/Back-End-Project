@@ -10,7 +10,9 @@ document.addEventListener('DOMContentLoaded', function(){
     document.getElementById('submit-button').addEventListener('click', submitSignup);
   } catch(e) {
     console.log('submit button not found moving on');
-    findUser();
+    if(document.getElementById('userCheck') == null || undefined) {
+      findUser();
+    }
   }
 });
 
@@ -54,39 +56,30 @@ function findUser() {
   fetch("http://localhost:5050/api/users/2", {method: 'GET'})
   .then(response => response.json())
   .then(data => {
-  console.log(data)
+  //Set Profile to Users Data
+  document.getElementById('user-fullname').innerHTML = `${data.firstName + " " + data.lastName}`;
+  document.getElementById('user-age').innerHTML = `${data.age}`
+  //City & State
+  document.getElementById('user-location').innerHTML = `${data.city + " " + data.state}`
+  document.getElementById('user-bio').innerHTML = `${data.bio}`
+  document.getElementById('tag-container').innerHTML = createTags()
+  //Connect with imgur
+  document.getElementById('pic-container').innerHTML = `<img id="profile-picture" src="${null}" alt="profile-picture">`
   })
   .catch(e => {
     console.log(e);
     return e;
   });
-
-  //Set Profile to Users Data
-  document.getElementById('user-fullname').innerHTML = `${data.firstName + " " + data.lastName}`;
-  document.getElementById('user-age').innerHTML = `18`
-  //City & State
-  document.getElementById('user-location').innerHTML = `${data.city + " " + data.state}`
-  document.getElementById('user-bio').innerHTML = `bio`
-  document.getElementById('tag-container').innerHTML = createTags()
-  //Connect with imgur
-  document.getElementById('pic-container').innerHTML = `<img id="profile-picture" src="${null}" alt="profile-picture">`
-
 }
 
-//Updates User
-// function updateUser() {
-//   //Get User
-//   fetch("http://localhost:5050/api/users/:id", {method: 'GET'})
-//   .then(response => response.json())
-//   .then(data => {
-//     //create copy of user
-//     //let newUser = {...data}
-//   })
-  // .catch(e => {
-  //   console.log(e);
-  //   return e;
-  // });
-//   //Send user data to DB
-//   fetch("http://localhost:5050/api/users/:id", {method: 'PATCH', body: updatedUser})
+// Updates User
+function updateUser() {
+  
+  //Send user data to DB
+  fetch("http://localhost:5050/api/users/10", {method: 'PUT', body: JSON.stringify(newUser), headers: {"Content-type": "application/json; charset=UTF-8"}});
+}
 
-// }
+function deleteUser() {
+  //Sends a request to delete user
+  fetch("http://localhost:5050/api/users/10", {method: 'DELETE',});
+}
