@@ -13,13 +13,26 @@ html, body{
     color: #F24236;
 }
 
-.edit-buttons{
-    height: 100px;
+.button-response{
+    width: 25%;
+}
+
+#profile-edit {
+    background-color: #F5F749;
+    color: #565554;
+    box-shadow: 5px 5px rgba(46, 134, 171, 0.4),
+    10px 10px rgba(46, 134, 171, 0.3),
+    15px 15px rgba(46, 134, 171, 0.2),
+    20px 20px rgba(46, 134, 171, 0.1),
+    25px 25px rgba(46, 134, 171, 0.05);
+    border: .5px solid #565554;
+    font-family: 'Poiret One', cursive;
+    margin-right: 3%;
 }
 
 #sign-out{
-    width: max-content; 
-    align-self: center;
+    display: flex;
+    justify-content: center;
     color:#F24236;
     font-family: 'Poiret One', cursive;;
     font-size: larger;
@@ -49,19 +62,6 @@ html, body{
     20px 20px rgba(46, 134, 171, 0.1),
     25px 25px rgba(46, 134, 171, 0.05);
     border: .5px solid #565554;
-}
-
-#profile-edit {
-    background-color: #F5F749;
-    margin-bottom: 15%;
-    color: #565554;
-    box-shadow: 5px 5px rgba(46, 134, 171, 0.4),
-    10px 10px rgba(46, 134, 171, 0.3),
-    15px 15px rgba(46, 134, 171, 0.2),
-    20px 20px rgba(46, 134, 171, 0.1),
-    25px 25px rgba(46, 134, 171, 0.05);
-    border: .5px solid #565554;
-    font-family: 'Poiret One', cursive;
 }
 
 #tags {

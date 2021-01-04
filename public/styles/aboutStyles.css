@@ -89,7 +89,7 @@ html, body{
     color: #2E86AB;
 }
 
-#profile-picture{
+.profile-picture{
     width: 100%;
     height: auto;
     border-radius: 10px;
@@ -102,7 +102,6 @@ html, body{
 
 .edit-buttons {
     margin-top: 2%;
-    
 }
 
 .content-holder {

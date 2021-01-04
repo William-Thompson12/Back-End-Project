@@ -1,0 +1,11 @@
+Understand whats happening on the backend
+Push a profile into the database / comment it out?
+
+Pull profile data from the database / comment it out?
+Data for profile | Data for matches
+
+specific route
+// GET user by userId from database (What would fetch route look like)
+
+basic questions:
+What would be different about pushing it up to the web.
