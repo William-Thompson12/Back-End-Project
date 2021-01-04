@@ -47,7 +47,7 @@
                         <div class="col-1">
                             <div  class="dropdown">
                                 <button id="profile-edit" class="btn" type="button" data-toggle="collapse" data-target="#collapse-edit" aria-expanded="false" aria-controls="collapse-edit">
-                                  Profile
+                                    Edit
                                 </button>
                             </div>
                         </div>
@@ -55,20 +55,85 @@
                 </div>
 
                 <div class="collapse" id="collapse-edit">
-                    <div class="row">
-                        <div class="col-6">
-                            <div class="edit-buttons" role="group" aria-label="edit-buttons">
-                                <!--Add functions to change and save on user session-->
-                                <button id="profile-edit" type="button" class="btn btn-secondary">Picture</button>
-                                <button id="profile-edit" type="button" class="btn btn-secondary">Location</button>
-                                <button id="profile-edit" type="button" class="btn btn-secondary">Bio</button>
-                                <button id="profile-edit" type="button" class="btn btn-secondary">Tags</button>
+                    <div class="edit-buttons" role="group" aria-label="edit-buttons">
+                        <!--Add functions to change and save on user session-->
+                    <p>
+                        <button id="profile-edit" class="btn btn-primary" type="button" data-toggle="collapse" data-target="#photo">
+                            Photo
+                        </button>
+                        <button id="profile-edit" class="btn btn-primary" type="button" data-toggle="collapse" data-target="#location">
+                            Location
+                        </button>
+                        <button id="profile-edit" class="btn btn-primary" type="button" data-toggle="collapse" data-target="#bio">
+                            Bio
+                        </button>
+                        <button id="profile-edit" class="btn btn-primary" type="button" data-toggle="collapse" data-target="#tags">
+                            Tags
+                        </button>
+                    </p>
+
+                    <div class="button-response">
+
+                        <div class="collapse" id="photo">
+                            <div class="card card-body">
+                                <form>
+                                    <div class="form-group">
+                                      <label for="exampleFormControlFile1">Choose a photo of yourself to upload:</label>
+                                      <input type="file" class="form-control-file" id="exampleFormControlFile1">
+                                    </div>
+                                    <button type="submit" class="btn text-danger">Submit</button>            
+                                  </form>                
+                                </div>
+                            </div>
+
+                        <form>
+                        <div class="collapse" id="location">
+                            <div class="card card-body">
+                                <div class="form-row">
+                                    <div class="form-group mr-3">
+                                      <label for="inputCity">City</label>
+                                      <input type="text" class="form-control w-100" id="inputCity">
+                                      <button type="submit" class="btn text-danger">Submit</button>            
+                                    </div>
+                                    <div class="form-group">
+                                      <label for="inputState">State</label>
+                                      <select id="inputState" class="form-control w-100">
+                                        <option selected>Choose...</option>
+                                        <%- include('../partials/states'); -%>
+                                      </select>
+                                    </div>
+                                  </div>
+                                </div>
+                            </div>
+                        </form>
+                        <div class="collapse" id="bio">
+                            <div class="card card-body">
+                          <form>
+                            <div class="form-group">
+                                <label for="message-text" class="col-form-label">Bio:</label>
+                                <textarea class="form-control" id="message-text"
+                                 placeholder="This is your chance to brag about yourself!"
+                                ></textarea>
+                              </div>
+                              <button type="submit" class="btn text-danger">Submit</button>
+                          </form>
+                        </div>
+                    </div>
+                        <div class="collapse" id="tags">
+                            <div class="card card-body">
+                                <label for="inputTags">Tags:</label>
+                                <select id="inputTags" class="form-control w-50">
+                                  <option selected>Choose up to 6...</option>
+                                  <%- include('../partials/tags'); -%>
+                                </select>
+                                <button type="submit" class="btn text-danger w-25">Submit</button>            
                             </div>
                         </div>
-                        <div class="col-6">
-                            <!--Sign-Out-->
-                            <a id="sign-out" type="button" class="btn btn-none" onclick="signOut();">Sign-out</a>
-                        </div>
+                    </div>
+
+                    <!--Sign-Out-->
+                    <div>
+                        <a id="sign-out" type="button" class="btn btn-none" onclick="signOut();">Sign-out</a>
                     </div>
                 </div>
             </div>
