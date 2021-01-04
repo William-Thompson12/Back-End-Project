@@ -1,76 +1,55 @@
-const db = require("../models");
-const User = db.Users;
+require('dotenv').config()
+const db = require("../../models/");
+const user = require("../../models/user");
+const User = db.User;
 const Op = db.Sequelize.Op;
-
-// Fake Id for now
-var primaryId = 1;
-// Fake DB for now
-const users = [
-  { 
-    id: 2,
-    first_name: 'william',
-    last_name: 'thompson',
-    address: "random",
-    city: 'seattle',
-    zip: 98000,
-    age: 18,
-    searchRadius: 20
-  },
-]
-// Create and Save a new User
-exports.create = (req, res) => {
-    // Validate request
-    if (req.body.age < 18) {
-        res.status(400).send({
-          message: "Must Be 18 or Older!"
-        });
-        return;
-      }
-
-  // Create a User
-  users.push({
-    id: primaryId,
-    first_name: req.body.first_name,
-    last_name: req.body.last_name,
-    address: req.body.address,
-    city: req.body.city,
-    zip: req.body.zip,
-    age: req.body.age,
-    gender: req.body.gender,
-    prefence: req.body.prefence ? req.body.prefence : false,
-    searchRadius: req.body.searchRadius
-  });
-  primaryId++;
-  // Save User in the database
-  // User.create(data)
-  //   .then(data => {
-  //     res.send(users);
-  //   })
-  res.status(200).send(users)
-    .catch(err => {
-      res.status(500).send({
-        message:
-          err.message || "Error occurred while creating the User."
-      });
-    });
-};
+const bcrypt = require("bcrypt")
+const jwt = require("jsonwebtoken")
+global.SALT_ROUNDS = 10;
 
 // Retrieve all Users from the database.
 exports.findAll = (req, res) => {
-    const title = req.query.title;
-  var condition = title ? { title: { [Op.iLike]: `%${title}%` } } : null;
-
-  User.findAll({ where: condition })
+  User.findAll()
     .then(data => {
       res.send(data);
     })
-    .catch(err => {
-      res.status(500).send({
-        message:
-          err.message || "Some error occurred while retrieving users."
-      });
-    });
 };
+
+//route that creates new user from email login
+exports.findAndCreate = async (req,res) => {
+
+  let persistedUser = await User.findOne({
+    where: {
+      email: req.body.email,
+    },
+  });
+
+  if( persistedUser === null) {
+    bcrypt.hash(req.body.password, SALT_ROUNDS, async (error, hash) => {
+      const newUser = await User.build({
+        firstName: req.body.firstName,
+        lastName: req.body.lastName,
+        email: req.body.email,
+        password:hash,
+        gender:req.body.gender,
+        preference: "straight",
+        city: req.body.city,
+        state: req.body.state,
+        zip: req.body.zip
+      });
+      const savedUser = await newUser.save();
+      const token = jwt.sign(
+        { email: savedUser.email,
+          id: savedUser.id },
+        process.env.SECRET_KEY
+      );
+      res.send({token})
+    });
+    } else {
+      res.send("email already belongs to a user")
+    }
+}
+
 
 // Find a single User with an id
 exports.findOne = (req, res) => {
@@ -135,3 +114,38 @@ exports.delete = (req, res) => {
       });
     });
 };
+
+exports.login = async (req,res) => {
+  try {
+    const { email, password } = req.body;
+
+    const existingUser = await User.findOne({
+      where: {
+        email
+      }
+    })
+    if(!existingUser) {
+      res.send({error: "no user found with that email"})
+    } else {
+      //checking hash passwords
+      const passMatching = await bcrypt.compare(password,existingUser.password);
+      if (passMatching === true) {
+        const token = jwt.sign(
+          {
+            email: existingUser.email, firstName: existingUser.firstName, lastName: existingUser.lastName
+          },
+          process.env.SECRET_KEY
+        );
+        res.json({token})
+      } else {
+        res.json({message: "wrong password"})
+      }
+    }
+  } catch(e) {
+    res.json({error: e})
+  }
+}
+
+exports.verifyLoggedIn = async (req,res) => {
+  res.send(req.user);
+}
