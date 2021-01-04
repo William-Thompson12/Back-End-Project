@@ -15,9 +15,10 @@ exports.findAll = (req, res) => {
     })
 };
 
-//route that creates new user from email login
+//route that creates new user from email signup
 exports.findAndCreate = async (req,res) => {
 
+  //checks if user already has an account
   let persistedUser = await User.findOne({
     where: {
       email: req.body.email,
@@ -32,7 +33,7 @@ exports.findAndCreate = async (req,res) => {
         email: req.body.email,
         password:hash,
         gender:req.body.gender,
-        preference: "straight",
+        preference: req.body.preference,
         city: req.body.city,
         state: req.body.state,
         zip: req.body.zip
