@@ -23,11 +23,9 @@ module.exports = app => {
     //Checks Login
     router.post("/login",users.login)
 
-    router.post("/login/verify",auth.authenticateUser)
+    router.post("/login/verify",auth.authenticateUser(),   users.verifyLoggedIn)
 
-    router.post('/image-upload',upload.single('image'), function(req,res) {
-      return res.json({'imageUrl':req.file.location});
-  })
+    router.post('/image-upload',auth.authenticateUser(), users.updateImage) 
     //Use before every route
     app.use('/api/users', router);
   };
