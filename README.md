@@ -42,5 +42,6 @@
   router.post("/login/verify",auth.authenticateUser) "Verify user is logged in"
   
   // Posting an img
+  router.post('/image-upload',auth.authenticateUser(), users.updateImage) Upload image to database and amazon s3
   
  
