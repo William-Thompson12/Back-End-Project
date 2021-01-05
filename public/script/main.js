@@ -5,6 +5,7 @@ function signOut(){
 document.addEventListener('DOMContentLoaded', function(){
   try {
     document.getElementById('submit-button').addEventListener('click', submitSignup);
+    document.getElementById('').addEventListener('click', submitSignup);
   } catch(e) {
     console.log('submit button not found moving on');
     document.getElementById('updateButton').addEventListener('click', updateUser)
