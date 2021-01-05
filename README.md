@@ -13,9 +13,9 @@
       -Email: Thompsonwilliam729@gmail.com
   ### Andre Davis:
     Contact
-      -
+      -Email: andre@andrejdavis.com
     My Responsibilities
-      -
+      -Matching Logic
 ## Repository Contents: 
   -Server.js: Holds the express server 
   -App: Within app we stored config, controllers, models, and routes which hook up with our data-base.
@@ -42,4 +42,5 @@
   router.post("/login/verify",auth.authenticateUser) "Verify user is logged in"
   
   // Posting an img
+  
  
