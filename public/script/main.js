@@ -1,3 +1,7 @@
+function signIn(){
+
+}
+
 function signOut(){
 
 }
@@ -5,7 +9,7 @@ function signOut(){
 document.addEventListener('DOMContentLoaded', function(){
   try {
     document.getElementById('submit-button').addEventListener('click', submitSignup);
-    document.getElementById('').addEventListener('click', submitSignup);
+    document.getElementById('sign-inButton').addEventListener('click', signIn);
   } catch(e) {
     console.log('submit button not found moving on');
     document.getElementById('updateButton').addEventListener('click', updateUser)
@@ -14,14 +18,6 @@ document.addEventListener('DOMContentLoaded', function(){
     }
   }
 });
-
-async function storeImg(img) {
-  fetch("http://localhost:5050/api/users/image-upload", {method: 'POST', img})
-  .then(response => response.json())
-  .then(data => {
-    return data.imageUrl
-  })
-}
 
 async function submitSignup(e) {
   e.preventDefault();
@@ -36,10 +32,8 @@ async function submitSignup(e) {
   let lastName = document.getElementById('inputLast').value;
   let prefrence = document.getElementById('userPrefrence').value;
   let state = document.getElementById('inputState').value;
-  let img = await storeImg(document.getElementById('fileToUpload').value)
   console.log(img)
   
-
   var newUser = {
     'email': email,
     'password': password,
@@ -50,9 +44,8 @@ async function submitSignup(e) {
     'lastName': lastName,
     'prefence': prefrence,
     'state': state,
-    'image': img
   }
-  console.log(newUser);
+
   await fetch("http://localhost:5050/api/users/", {method: 'POST', body: JSON.stringify(newUser), headers: {"Content-type": "application/json; charset=UTF-8"}})
   .then(response => response.json())
   .then(data => {

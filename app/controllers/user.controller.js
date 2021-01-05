@@ -36,7 +36,6 @@ exports.findAndCreate = async (req,res) => {
         preference: req.body.preference,
         city: req.body.city,
         state: req.body.state,
-        image: req.body.image,
         bio: 'Add a bio!',
         age: req.body.age,
       });
