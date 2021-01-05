@@ -32,7 +32,16 @@ module.exports = {
       state: {
         type: Sequelize.STRING
       },
-      zip: {
+      bio: {
+        type: Sequelize.STRING
+      },
+      image: {
+        type: Sequelize.STRING
+      },
+      tags: {
+        type: Sequelize.STRING
+      },
+      score: {
         type: Sequelize.STRING
       },
       createdAt: {

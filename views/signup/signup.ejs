@@ -47,8 +47,11 @@
                 <input type="text" class="form-control" id="inputCity" required>
               </div>
               <div class="form-group col-md-6">
-                <label id="zip-field" for="inputZip">Zip</label>
-                <input type="text" class="form-control" maxlength="5" minlength="5" id="inputZip" required>
+                <label id="state-field" for="inputZip">State</label>
+                <select id="inputState" class="form-control w-100">
+                  <option selected>Choose...</option>
+                  <%- include('../partials/states'); -%>
+                </select>
               </div>
             </div>
             <div class="form-row">
