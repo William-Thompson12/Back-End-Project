@@ -12,6 +12,30 @@ html, body{
     padding-right: 10%;
 }
 
+.modalButtonStyle {
+    background-color: #F5F749;
+}
+
+.modal-header {
+    background-color: #EAF2E3;
+    font-family: 'Poiret One', cursive;
+    color: #F24236;
+}
+
+.modal-body {
+    background-color: #EAF2E3;
+    align-self: center;
+    text-align: center;
+    font-family: 'Poiret One', cursive;
+    color: #F24236;
+}
+
+.modal-footer {
+    background-color: #EAF2E3;
+    font-family: 'Poiret One', cursive;
+    color: #F24236;
+}
+
 .interaction .card {
     background-color: #EAF2E3;
     box-shadow: 5px 5px rgba(46, 134, 171, 0.4),

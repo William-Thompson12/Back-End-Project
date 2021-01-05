@@ -14,8 +14,18 @@ document.addEventListener('DOMContentLoaded', function(){
   }
 });
 
-function submitSignup(e) {
+async function storeImg(img) {
+  fetch("http://localhost:5050/api/users/image-upload", {method: 'POST', img})
+  .then(response => response.json())
+  .then(data => {
+    return data.imageUrl
+  })
+}
+
+async function submitSignup(e) {
   e.preventDefault();
+  console.log(document.getElementById('fileToUpload').value)
+
   let email = document.getElementById('inputEmail').value;
   let password = document.getElementById('inputPassword').value;
   let gender = document.getElementById('userGender').value;
@@ -25,7 +35,10 @@ function submitSignup(e) {
   let lastName = document.getElementById('inputLast').value;
   let prefrence = document.getElementById('userPrefrence').value;
   let state = document.getElementById('inputState').value;
+  let img = await storeImg(document.getElementById('fileToUpload').value)
+  console.log(img)
   
+
   var newUser = {
     'email': email,
     'password': password,
@@ -36,9 +49,10 @@ function submitSignup(e) {
     'lastName': lastName,
     'prefence': prefrence,
     'state': state,
+    'image': img
   }
   console.log(newUser);
-  fetch("http://localhost:5050/api/users/", {method: 'POST', body: JSON.stringify(newUser), headers: {"Content-type": "application/json; charset=UTF-8"}})
+  await fetch("http://localhost:5050/api/users/", {method: 'POST', body: JSON.stringify(newUser), headers: {"Content-type": "application/json; charset=UTF-8"}})
   .then(response => response.json())
   .then(data => {
     document.getElementById('error-message').innerHTML = `Thanks ${firstName}, your account was successfully created! Return to home and sign-in`
@@ -50,7 +64,7 @@ function submitSignup(e) {
 function findUser() {
   console.log('function ran')
   // Specific User Id from log in.
-  fetch("http://localhost:5050/api/users/18", {method: 'GET'})
+  fetch("http://localhost:5050/api/users/1", {method: 'GET'})
   .then(response => response.json())
   .then(data => {
   //Set Profile to Users Data
@@ -64,8 +78,7 @@ function findUser() {
   document.getElementById('pic-container').innerHTML = `<img id="profile-picture" src="${data.img}" alt="profile-picture">`
   })
   .catch(e => {
-    console.log(e);
-    return e;
+    console.error(e);
   });
 }
 
@@ -84,16 +97,16 @@ async function updateUser(e) {
     'city': city,
     'bio': bio
   }
-
+  console.log(bio, city, state)
   //stops from sending empty values
-  if(updatedUser.city || updatedUser.bio === null || undefined) {
+  if (updatedUser.city && updatedUser.bio === null || undefined) {
+    console.log('Both are empty moving on')
     let updatedUser = {
       'bio': newBio,
       'city': newCity,
       'state': state
-    };
-    
-    await fetch("http://localhost:5050/api/users/18", {method: 'PUT', body: JSON.stringify(updatedUser), headers: {"Content-type": "application/json; charset=UTF-8"}})
+    }    
+    await fetch("http://localhost:5050/api/users/1", {method: 'PUT', body: JSON.stringify(updatedUser), headers: {"Content-type": "application/json; charset=UTF-8"}})
     .then(response => response.json())
     .then(data => {
       document.getElementById('error-message').innerHTML = `Updated User Successfully`
@@ -103,21 +116,54 @@ async function updateUser(e) {
       })
     return
   }
-
-  //Send user data to DB
-  await fetch("http://localhost:5050/api/users/18", {method: 'PUT', body: JSON.stringify(updatedUser), headers: {"Content-type": "application/json; charset=UTF-8"}})
-  .then(response => response.json())
-  .then(data => {
-    document.getElementById('error-message').innerHTML = `Updated User Successfully`
-  })
-  .catch(e => {
-  document.getElementById('error-message').innerHTML = `Couldn't Update User ${e}`
-  })
+  else if(updatedUser.city === null) {
+    console.log('City is empty moving on')
+    let updatedUser = {
+      'bio': bio,
+      'city': newCity,
+      'state': state
+    }    
+    await fetch("http://localhost:5050/api/users/1", {method: 'PUT', body: JSON.stringify(updatedUser), headers: {"Content-type": "application/json; charset=UTF-8"}})
+    .then(response => response.json())
+    .then(data => {
+      document.getElementById('error-message').innerHTML = `Updated User Successfully`
+    })
+    .catch(e => {
+      document.getElementById('error-message').innerHTML = `Couldn't Update User ${e}`
+      })
+    return
+  }else if(updatedUser.bio === null){
+    console.log('Bio is empty moving on')
+    let updatedUser = {
+      'bio': newBio,
+      'city': city,
+      'state': state
+    }    
+    await fetch("http://localhost:5050/api/users/1", {method: 'PUT', body: JSON.stringify(updatedUser), headers: {"Content-type": "application/json; charset=UTF-8"}})
+    .then(response => response.json())
+    .then(data => {
+      document.getElementById('error-message').innerHTML = `Updated User Successfully`
+    })
+    .catch(e => {
+      document.getElementById('error-message').innerHTML = `Couldn't Update User ${e}`
+      })
+    return
+  } else {
+    //Send user data to DB
+    await fetch("http://localhost:5050/api/users/1", {method: 'PUT', body: JSON.stringify(updatedUser), headers: {"Content-type": "application/json; charset=UTF-8"}})
+    .then(response => response.json())
+    .then(data => {
+      document.getElementById('error-message').innerHTML = `Updated User Successfully`
+    })
+    .catch(e => {
+    document.getElementById('error-message').innerHTML = `Couldn't Update User ${e}`
+    })
+  }
 }
 
 function deleteUser() {
   //Sends a request to delete user
-  fetch("http://localhost:5050/api/users/17", {method: 'DELETE',});
+  fetch("http://localhost:5050/api/users/1", {method: 'DELETE',});
 }
 
 $("#dialogBtn").on("click", dialog.bind(this, 'Are you Sure?'));

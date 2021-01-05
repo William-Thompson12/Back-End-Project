@@ -36,7 +36,7 @@ exports.findAndCreate = async (req,res) => {
         preference: req.body.preference,
         city: req.body.city,
         state: req.body.state,
-        img: req.body.img,
+        image: req.body.image,
         bio: 'Add a bio!',
         age: req.body.age,
       });
@@ -79,6 +79,9 @@ exports.update = (req, res) => {
     img: req.body.img,
   }, {
     where: {id : id},
+  })
+  .then(data => {
+    res.send(data);
   })
   .catch(err => {
     res.status(500).send({
