@@ -114,7 +114,7 @@ html, body{
 #modal_dialog{
     display: none;
     width: 100%;
-    height: 100vh;
+    height: 100%;
     background-color: #EAF2E3;  
     z-index: 1000;
     position: absolute;
