@@ -36,7 +36,9 @@ exports.findAndCreate = async (req,res) => {
         preference: req.body.preference,
         city: req.body.city,
         state: req.body.state,
-        zip: req.body.zip
+        img: req.body.img,
+        bio: 'Add a bio!',
+        age: req.body.age,
       });
       const savedUser = await newUser.save();
       const token = jwt.sign(
@@ -49,13 +51,12 @@ exports.findAndCreate = async (req,res) => {
     } else {
       res.send("email already belongs to a user")
     }
-}
+};
 
 
 // Find a single User with an id
 exports.findOne = (req, res) => {
     const id = req.params.id;
-    console.log(id)
     User.findByPk(id)
     .then(data => {
       res.send(data);
@@ -69,16 +70,22 @@ exports.findOne = (req, res) => {
 
 // Update a User by the id in the request
 exports.update = (req, res) => {
-  let userId = req.params.id
+  const id = req.params.id
   User.update({ 
     // what is being updated
+    city: req.body.city,
+    state: req.body.state,
+    bio: req.body.bio,
+    img: req.body.img,
   }, {
-    where: {id : userId},
-    returning: true, // needed for affectedRows to be populated
-    plain: true // makes sure that the returned instances are just plain objects
+    where: {id : id},
   })
-  
- }
+  .catch(err => {
+    res.status(500).send({
+      message: "Could not Updated user with id=" + id + `${err}`
+    });
+  });
+};
 
 // Delete a User with the specified id in the request
 exports.delete = (req, res) => {

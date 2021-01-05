@@ -19,9 +19,11 @@ module.exports = app => {
     // Delete a Users with id
     router.delete("/:id", users.delete);
 
+    //Checks Login
     router.post("/login",users.login)
 
     router.post("/login/verify",auth.authenticateUser)
   
+    //Use before every route
     app.use('/api/users', router);
   };

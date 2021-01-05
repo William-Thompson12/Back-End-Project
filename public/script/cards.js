@@ -29,7 +29,6 @@ function shuffle() {
                     </div>
                   </div>
                   <p id="user-bio" class="card-text">${userInfo.bio}</p>
-                  <div id="tag-container">${userInfo.tags}</div>
                 </div>
               </div>
             </div>

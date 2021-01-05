@@ -20,28 +20,23 @@
         <div class="content-holder">
             <div class="user-card animate__animated animate__fadeIn">
                 <div class="row">
-                    <div class="row">
-                        <div id="pic-container" class="col-4 user-icon"></div>
+                    <div id="pic-container" class="col-3 user-icon"></div>
 
-                        <div class="col-7 user-info">
+                        <div class="col-4 user-info">
                             <h2 id="user-fullname"></h2>
                             <hr>
                             <div class="user-vitals">
                                 <div id="user-vitals" class="row">
                                     <h5 id="user-age"></h5>
                                     <h5>||</h5>
-                                    <h5 id="user-location"></h5>
+                                    <h5 id="user-city"></h5>
+                                    <h5 id="user-state"></h5>
                                     <h5>||</h5>
                                 </div>
                             </div>
                             <br>
 
                             <div id="user-bio"></div>
-
-                            <div id="user-tags">
-                                <h5>Interest:</h5>
-                                <div id="tag-container" class="row"></div>
-                            </div>
                         </div>
 
                         <div class="col-1">
@@ -51,89 +46,43 @@
                                 </button>
                             </div>
                         </div>
+                </div>
+                <div class="collapse" id="collapse-edit">
+                    <form>
+                        <div class="form-group">
+                            <label for="updateImg">Img</label>
+                            <input id="updateImg" type="submit" value="Upload Image" name="submit">
+                            <input type="file" name="fileToUpload" id="fileToUpload">
+                        </div>
+                        <div class="form-group">
+                            <label for="updateCity">City</label>
+                            <input type="email" class="form-control" id="updateCity" placeholder="Seattle">
+                        </div>
+                        <div class="form-group">
+                            <label for="updateLocation">State</label>
+                            <select class="form-control" id="updateState">
+                                <%- include('../partials/states.ejs'); -%>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="updateBio">Bio</label>
+                            <textarea class="form-control" id="updateBio" rows="1"></textarea>
+                        </div>
+                        <button id="updateButton" type="submit" class="btn btn-dark">Submit</button>
+                        <input type='button' value='Delete Account' class="btn-danger" id="dialogBtn"/>
+                    </form>
+                    <div id="error-message"></div>
+                    <div id='modal_dialog'>
+                        <div id="modal-content">
+                        <div class='title'></div>
+                        <input type='button' value='yes' id='dialogBtnYes' />
+                        <input type='button' value='no' id='dialogBtnNo' />
+                        </div>
                     </div>
                 </div>
-
-                <div class="collapse" id="collapse-edit">
-                    <div class="edit-buttons" role="group" aria-label="edit-buttons">
-                        <!--Add functions to change and save on user session-->
-                    <p>
-                        <button id="profile-edit" class="btn btn-primary" type="button" data-toggle="collapse" data-target="#photo">
-                            Photo
-                        </button>
-                        <button id="profile-edit" class="btn btn-primary" type="button" data-toggle="collapse" data-target="#location">
-                            Location
-                        </button>
-                        <button id="profile-edit" class="btn btn-primary" type="button" data-toggle="collapse" data-target="#bio">
-                            Bio
-                        </button>
-                        <button id="profile-edit" class="btn btn-primary" type="button" data-toggle="collapse" data-target="#tags">
-                            Tags
-                        </button>
-                    </p>
-
-                    <div class="button-response">
-
-                        <div class="collapse" id="photo">
-                            <div class="card card-body">
-                                <form>
-                                    <div class="form-group">
-                                      <label for="exampleFormControlFile1">Choose a photo of yourself to upload:</label>
-                                      <input type="file" class="form-control-file" id="exampleFormControlFile1">
-                                    </div>
-                                    <button type="submit" class="btn text-danger">Submit</button>            
-                                  </form>                
-                                </div>
-                            </div>
-
-                        <form>
-                        <div class="collapse" id="location">
-                            <div class="card card-body">
-                                <div class="form-row">
-                                    <div class="form-group mr-3">
-                                      <label for="inputCity">City</label>
-                                      <input type="text" class="form-control w-100" id="inputCity">
-                                      <button type="submit" class="btn text-danger">Submit</button>            
-                                    </div>
-                                    <div class="form-group">
-                                      <label for="inputState">State</label>
-                                      <select id="inputState" class="form-control w-100">
-                                        <option selected>Choose...</option>
-                                        <%- include('../partials/states'); -%>
-                                      </select>
-                                    </div>
-                                  </div>
-                                </div>
-                            </div>
-                        </form>
-                        <div class="collapse" id="bio">
-                            <div class="card card-body">
-                          <form>
-                            <div class="form-group">
-                                <label for="message-text" class="col-form-label">Bio:</label>
-                                <textarea class="form-control" id="message-text"
-                                 placeholder="This is your chance to brag about yourself!"
-                                ></textarea>
-                              </div>
-                              <button type="submit" class="btn text-danger">Submit</button>
-                          </form>
-                        </div>
-                    </div>
-                        <div class="collapse" id="tags">
-                            <div class="card card-body">
-                                <label for="inputTags">Tags:</label>
-                                <select id="inputTags" class="form-control w-50">
-                                  <option selected>Choose up to 6...</option>
-                                  <%- include('../partials/tags'); -%>
-                                </select>
-                                <button type="submit" class="btn text-danger w-25">Submit</button>            
-                            </div>
-                        </div>
-                    </div>
-
                     <!--Sign-Out-->
                     <div>
-                        <a id="sign-out" type="button" class="btn btn-none" onclick="signOut();">Sign-out</a>
+                        <button id="sign-out" type="button" class="btn btn-none" onclick="signOut();">Sign-out</button>
                     </div>
                 </div>
             </div>
