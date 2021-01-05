@@ -157,3 +157,4 @@ exports.login = async (req,res) => {
 exports.verifyLoggedIn = async (req,res) => {
   res.send(req.user);
 }
+

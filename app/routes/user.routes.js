@@ -1,8 +1,9 @@
 module.exports = app => {
     const users = require("../controllers/user.controller.js");
     const auth = require("../middlewares/auth")
-  
-    var router = require("express").Router();
+    const router = require("express").Router();
+    const upload = require('../services/fileUpload')
+    
   
     // Create a new Users
     router.post("/", users.findAndCreate);
@@ -21,7 +22,15 @@ module.exports = app => {
 
     router.post("/login",users.login)
 
-    router.post("/login/verify",auth.authenticateUser)
+    router.post("/login/verify",auth.authenticateUser,users.verifyLoggedIn)
+
+    router.post('/image-upload',upload.single('image'), function(req,res) {
+      return res.json({'imageUrl':req.file.location});
+  })
+    
+    router.post("")
+
+    
   
     app.use('/api/users', router);
   };
