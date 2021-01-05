@@ -9,6 +9,10 @@ html, body{
     font-size: 30px;
 }
 
+hr {
+    width: 50vw;
+}
+
 #nav-text {
     color: #F24236;
 }
