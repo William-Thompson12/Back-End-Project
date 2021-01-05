@@ -1,10 +1,19 @@
-// this function will render user cards to the screen 
-function shuffle() {
+function randomInteger(min, max) {
+  return Math.floor(Math.random() * (max - min + 1)) + min;
+}
 
-    let cardContainer = document.getElementById("user-cards");
-    const fakeDb = [0];
+function shuffle() {
   
-    var userCard = fakeDb.map((userInfo) => {
+  let newId = randomInteger(1, 10);
+  console.log(newId);
+  fetch(`http://localhost:5050/api/users/${newId}`, {method: 'GET'})
+    .then(response => response.json())
+    .then(data => {
+      console.log(data)
+    let cardContainer = document.getElementById("user-cards");
+    let userContainer = []
+    userContainer.push(data)
+    var userCard = userContainer.map((userInfo) => {
       return `
           <div class="card mb-5">
             <div class="row no-gutters">
@@ -13,9 +22,13 @@ function shuffle() {
               </div>
               <div class="col-md-8">
                 <div class="card-body" style="font-family: 'Poiret One', cursive;">
-                  <h5 id="user-fullname" class="card-title">${userInfo.firstName}</h5>
-                  <p id="user-bio" class="card-text">${userInfo.lastName}</p>
-                  <p id="user-location">${userInfo.city + " - " + userInfo.state }</p>
+                  <h5 id="user-fullname" class="card-title">${userInfo.firstName + " " + userInfo.lastName}</h5>
+                  <div class="user-vitals">
+                    <div id="user-vitals" class="row">
+                      <h5>${userInfo.age + " " + userInfo.city + " " + userInfo.state}</h5>
+                    </div>
+                  </div>
+                  <p id="user-bio" class="card-text">${userInfo.bio}</p>
                   <div id="tag-container">${userInfo.tags}</div>
                 </div>
               </div>
@@ -24,6 +37,10 @@ function shuffle() {
       `
     });
     cardContainer.innerHTML = userCard.join(" ");
-    console.log(userCard);
-  };
+    })
+    .catch(e => {
+      console.log(e);
+      return e;
+    })
+  }
 // end user-cards function 

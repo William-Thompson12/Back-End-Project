@@ -17,7 +17,7 @@ exports.findAll = (req, res) => {
 
 //route that creates new user from email signup
 exports.findAndCreate = async (req,res) => {
-
+ console.log(req.body)
   //checks if user already has an account
   let persistedUser = await User.findOne({
     where: {
@@ -55,7 +55,7 @@ exports.findAndCreate = async (req,res) => {
 // Find a single User with an id
 exports.findOne = (req, res) => {
     const id = req.params.id;
-
+    console.log(id)
     User.findByPk(id)
     .then(data => {
       res.send(data);
@@ -69,28 +69,16 @@ exports.findOne = (req, res) => {
 
 // Update a User by the id in the request
 exports.update = (req, res) => {
-    const id = req.params.id;
-
-    User.update(req.body, {
-    where: { id: id }
+  let userId = req.params.id
+  User.update({ 
+    // what is being updated
+  }, {
+    where: {id : userId},
+    returning: true, // needed for affectedRows to be populated
+    plain: true // makes sure that the returned instances are just plain objects
   })
-    .then(num => {
-      if (num == 1) {
-        res.send({
-          message: "User was updated successfully."
-        });
-      } else {
-        res.send({
-          message: `Cannot update User with id=${id}. Maybe User was not found or req.body is empty!`
-        });
-      }
-    })
-    .catch(err => {
-      res.status(500).send({
-        message: "Error updating User with id=" + id
-      });
-    });
-};
+  
+ }
 
 // Delete a User with the specified id in the request
 exports.delete = (req, res) => {
