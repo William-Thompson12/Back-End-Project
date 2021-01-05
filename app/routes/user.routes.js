@@ -3,6 +3,7 @@ module.exports = app => {
     const auth = require("../middlewares/auth")
   
     var router = require("express").Router();
+    const upload = require('../services/fileupload')
   
     // Create a new Users
     router.post("/", users.findAndCreate);
@@ -23,7 +24,10 @@ module.exports = app => {
     router.post("/login",users.login)
 
     router.post("/login/verify",auth.authenticateUser)
-  
+
+    router.post('/image-upload',upload.single('image'), function(req,res) {
+      return res.json({'imageUrl':req.file.location});
+  })
     //Use before every route
     app.use('/api/users', router);
   };
