@@ -7,21 +7,29 @@ function signOut(){
 }
 
 document.addEventListener('DOMContentLoaded', function(){
-  try {
-    document.getElementById('submit-button').addEventListener('click', submitSignup);
+  try{
     document.getElementById('sign-inButton').addEventListener('click', signIn);
-  } catch(e) {
-    console.log('submit button not found moving on');
-    document.getElementById('updateButton').addEventListener('click', updateUser)
     if(document.getElementById('userCheck') == null || undefined) {
       findUser();
+      document.getElementById('updateImg').addEventListener('click', updateImage)
+      document.getElementById('updateButton').addEventListener('click', updateUser);
+    }
+  }catch(e){
+    console.log(e)
+    if(document.getElementById('userCheck') == null || undefined) {
+      findUser();
+      document.getElementById('updateImg').addEventListener('click', updateImage)
+      document.getElementById('updateButton').addEventListener('click', updateUser);
+    }else{
+      document.getElementById('submit-button').addEventListener('click', submitSignup);
     }
   }
+  
 });
 
 async function submitSignup(e) {
   e.preventDefault();
-  console.log(document.getElementById('fileToUpload').value)
+  // console.log(document.getElementById('fileToUpload').value)
 
   let email = document.getElementById('inputEmail').value;
   let password = document.getElementById('inputPassword').value;
@@ -32,7 +40,6 @@ async function submitSignup(e) {
   let lastName = document.getElementById('inputLast').value;
   let prefrence = document.getElementById('userPrefrence').value;
   let state = document.getElementById('inputState').value;
-  console.log(img)
   
   var newUser = {
     'email': email,
@@ -69,11 +76,36 @@ function findUser() {
   document.getElementById('user-state').innerHTML = `${data.state}`
   document.getElementById('user-bio').innerHTML = `${data.bio}`
   //Connect with imgur
-  document.getElementById('pic-container').innerHTML = `<img id="profile-picture" src="${data.img}" alt="profile-picture">`
+  document.getElementById('pic-container').innerHTML = `<img id="profile-picture" src="${data.image}" alt="profile-picture">`
   })
   .catch(e => {
     console.error(e);
   });
+}
+
+function updateImage(e) {
+  e.preventDefault();
+  const files = document.getElementById('fileToUpload').files[0]
+  console.log(files)
+  const formData = new FormData()
+  formData.append('myFile', files)
+  const myImage = files[0]
+  const imageType = /image.*/
+ 
+  if (!myImage.type.match(imageType)) {
+    alert('Sorry, only images are allowed')
+    return
+  }else{
+    fetch('http://localhost:5050/api/users/image-upload', {method: 'POST', body: myImage, headers: {"Content-type": "application/json; charset=UTF-8"}}
+    .then(response => response.json())
+    .then(data => {
+      console.log(data)
+    })
+    .catch(error => {
+      console.error(error)
+    }))
+  }
+  
 }
 
 // Updates User
@@ -82,16 +114,15 @@ async function updateUser(e) {
   let state = document.getElementById('updateState').value;
   let city = document.getElementById('updateCity').value;
   let bio = document.getElementById('updateBio').value;
-  let location = document.getElementById('user-city').value
-  let newBio = document.getElementById('user-bio').value
-  let newCity = document.getElementById('user-city').value
+  let newBio = document.getElementById('user-bio').value;
+  let newCity = document.getElementById('user-city').value;
 
   var updatedUser = {
     'state': state,
     'city': city,
     'bio': bio
-  }
-  console.log(bio, city, state)
+  };
+  console.log(bio, city, state);
   //stops from sending empty values
   if (updatedUser.city && updatedUser.bio === null || undefined) {
     console.log('Both are empty moving on')
@@ -99,7 +130,7 @@ async function updateUser(e) {
       'bio': newBio,
       'city': newCity,
       'state': state
-    }    
+    };    
     await fetch("http://localhost:5050/api/users/1", {method: 'PUT', body: JSON.stringify(updatedUser), headers: {"Content-type": "application/json; charset=UTF-8"}})
     .then(response => response.json())
     .then(data => {
@@ -116,7 +147,7 @@ async function updateUser(e) {
       'bio': bio,
       'city': newCity,
       'state': state
-    }    
+    };    
     await fetch("http://localhost:5050/api/users/1", {method: 'PUT', body: JSON.stringify(updatedUser), headers: {"Content-type": "application/json; charset=UTF-8"}})
     .then(response => response.json())
     .then(data => {
@@ -132,7 +163,7 @@ async function updateUser(e) {
       'bio': newBio,
       'city': city,
       'state': state
-    }    
+    };    
     await fetch("http://localhost:5050/api/users/1", {method: 'PUT', body: JSON.stringify(updatedUser), headers: {"Content-type": "application/json; charset=UTF-8"}})
     .then(response => response.json())
     .then(data => {
@@ -141,7 +172,7 @@ async function updateUser(e) {
     .catch(e => {
       document.getElementById('error-message').innerHTML = `Couldn't Update User ${e}`
       })
-    return
+    return;
   } else {
     //Send user data to DB
     await fetch("http://localhost:5050/api/users/1", {method: 'PUT', body: JSON.stringify(updatedUser), headers: {"Content-type": "application/json; charset=UTF-8"}})

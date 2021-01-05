@@ -43,6 +43,7 @@ exports.findAndCreate = async (req,res) => {
 
   if( persistedUser === null) {
     bcrypt.hash(req.body.password, SALT_ROUNDS, async (error, hash) => {
+      //Build User
       const newUser = await User.build({
         firstName: req.body.firstName,
         lastName: req.body.lastName,
@@ -161,5 +162,6 @@ exports.login = async (req,res) => {
 }
 
 exports.verifyLoggedIn = async (req,res) => {
+  //returns token and id
   console.log(req.user);
 }
