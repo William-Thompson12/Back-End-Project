@@ -5,7 +5,23 @@ const User = db.User;
 const Op = db.Sequelize.Op;
 const bcrypt = require("bcrypt")
 const jwt = require("jsonwebtoken")
+const upload = require('../services/fileupload')
 global.SALT_ROUNDS = 10;
+
+const singleUpload = upload.single('image');
+
+exports.updateImage = (req,res) => {
+    singleUpload(req, res, function(error) {
+      User.update({
+        image: req.file.location
+      },{
+        where: {
+          id: req.user.id
+        }
+      }).then(res.send("updated URL"))
+    })
+  }
+
 
 // Retrieve all Users from the database.
 exports.findAll = (req, res) => {
@@ -146,5 +162,5 @@ exports.login = async (req,res) => {
 }
 
 exports.verifyLoggedIn = async (req,res) => {
-  res.send(req.user);
+  console.log(req.user);
 }
