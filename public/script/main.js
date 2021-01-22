@@ -65,7 +65,7 @@ async function submitSignup(e) {
 function findUser() {
   console.log('function ran')
   // Specific User Id from log in.
-  fetch("http://localhost:5050/api/users/1", {method: 'GET'})
+  fetch("http://localhost:5050/api/users/2", {method: 'GET'})
   .then(response => response.json())
   .then(data => {
   //Set Profile to Users Data
@@ -85,18 +85,13 @@ function findUser() {
 
 function updateImage(e) {
   e.preventDefault();
-  const files = document.getElementById('fileToUpload').files[0]
-  console.log(files)
-  const formData = new FormData()
-  formData.append('myFile', files)
-  const myImage = files[0]
-  const imageType = /image.*/
- 
-  if (!myImage.type.match(imageType)) {
-    alert('Sorry, only images are allowed')
-    return
-  }else{
-    fetch('http://localhost:5050/api/users/image-upload', {method: 'POST', body: myImage, headers: {"Content-type": "application/json; charset=UTF-8"}}
+  const files = document.getElementById('fileToUpload').files;
+  const file = files[0];
+  if (!files.length) {
+    return alert("Please choose a file to upload first.");
+  }
+  else{
+    fetch('http://localhost:5050/api/users/image-upload', {method: 'POST', body: file, headers: {"Content-type": "application/json; charset=UTF-8"}}
     .then(response => response.json())
     .then(data => {
       console.log(data)

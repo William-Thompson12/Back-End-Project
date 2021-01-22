@@ -13,7 +13,7 @@ const singleUpload = upload.single('image');
 exports.updateImage = (req,res) => {
     singleUpload(req, res, function(error) {
       User.update({
-        image: req.file.location
+        image: req.file
       },{
         where: {
           id: req.user.id
